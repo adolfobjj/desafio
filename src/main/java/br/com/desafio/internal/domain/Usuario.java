@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
+;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
