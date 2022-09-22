@@ -20,7 +20,7 @@ public class UserController {
 
     @Autowired
     private ModelMapper mapper;
-   //mapeia o usuario  o destino usuariodto
+   //mapeia o usuario  o destino usuarioDTO
     @Autowired
     private UserService service;
 
