@@ -39,7 +39,6 @@ public class UserServiceImpl implements UserService {
         findByEmail(obj);
         return repository.save(mapper.map(obj, Usuario.class));
     }
-
     @Override
     public Usuario update(UserDTO obj) {
         findByEmail(obj);
