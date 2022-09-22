@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/usuario")
 public class UserController {
 
     private static final String ID = "/{id}";
