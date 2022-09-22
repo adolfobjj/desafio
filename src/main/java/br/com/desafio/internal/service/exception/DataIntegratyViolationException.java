@@ -6,3 +6,4 @@ public class DataIntegratyViolationException extends RuntimeException{
         super(message);
     }
 }
+//violação de integração de dados
