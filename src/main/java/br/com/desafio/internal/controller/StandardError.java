@@ -18,3 +18,5 @@ public class StandardError {
     public StandardError(LocalDateTime now, int value, String message, String requestURI) {
     }
 }
+
+//Erro padrao com localdate
