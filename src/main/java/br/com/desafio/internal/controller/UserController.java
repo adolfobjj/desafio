@@ -36,7 +36,7 @@ public class UserController {
                 .stream().map(x -> mapper.map(x, UserDTO.class)).collect(Collectors.toList()));
     }
 
-    @PostMapping
+    @PostMapping  //cria novo usurario
     public ResponseEntity<UserDTO> create(@RequestBody UserDTO obj) {
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest().path(ID).buildAndExpand(service.create(obj).getId()).toUri();

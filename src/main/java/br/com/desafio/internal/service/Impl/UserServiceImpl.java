@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Usuario create(UserDTO obj) {
+    public Usuario create(UserDTO obj) { //salva user
         findByEmail(obj);
         return repository.save(mapper.map(obj, Usuario.class));
     }

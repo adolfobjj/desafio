@@ -11,7 +11,7 @@ public interface UserService {
 
     Usuario findById(Integer id);
     List<Usuario> findAll(); //implementação na interface do findAll
-    Usuario create(UserDTO obj);
+    Usuario create(UserDTO obj); //salva um usuario no banco
     Usuario update(UserDTO obj);
     void delete(Integer id);
 }
