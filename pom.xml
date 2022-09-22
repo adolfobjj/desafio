@@ -174,11 +174,14 @@
 				<native-buildtools.version>0.9.13</native-buildtools.version>
 			</properties>
 			<dependencies>
+				<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
 				<dependency>
 					<groupId>org.junit.platform</groupId>
 					<artifactId>junit-platform-launcher</artifactId>
+					<version>1.9.0</version>
 					<scope>test</scope>
 				</dependency>
+
 			</dependencies>
 			<build>
 				<plugins>
