@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 ;
 
@@ -33,5 +34,6 @@ public class User implements Serializable {
     @NotEmpty(message = "Campo senha é mandatório")
     @Length(min = 4, max = 20, message = "Entre 4 e 20 caracteres.")
     private String senha;
+    private LocalDateTime timestamp;
 
 }
