@@ -20,6 +20,7 @@ public class LocalConfig {
 
     @Bean
     public void startDB() {
+        //instanciando 3 usuarios no banco para teste
         Usuario u1 = new Usuario(null, "Luiz Adolfo", "luiz.a.tucunduva@avanade.com", "123", LocalDate.now());
         Usuario u2 = new Usuario(null, "Felipe Augusto", "felipe@avanade.com", "123",LocalDate.now());
         Usuario u3 = new Usuario(null, "Vinicius", "vinicius@avanade.com", "123",LocalDate.now());
