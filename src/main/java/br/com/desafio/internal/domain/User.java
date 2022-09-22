@@ -18,7 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @Entity
-public class Usuario implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
