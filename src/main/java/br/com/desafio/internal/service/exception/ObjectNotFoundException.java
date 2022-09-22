@@ -11,3 +11,5 @@ public class ObjectNotFoundException extends RuntimeException {
         super(message);
     }
 }
+
+//criação de exceção para objeto nao encontrado
