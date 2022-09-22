@@ -28,3 +28,5 @@ public class ControllerExceptionHandler {
     }
 
 }
+
+// exceção para controller
