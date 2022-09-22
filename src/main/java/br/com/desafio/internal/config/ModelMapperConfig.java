@@ -12,3 +12,4 @@ public class ModelMapperConfig {
         return new ModelMapper();
     }
 }
+//criação do modelmapper para mapear o DTO
