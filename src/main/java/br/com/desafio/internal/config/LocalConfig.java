@@ -1,7 +1,7 @@
 package br.com.desafio.internal.config;
 
 
-import br.com.desafio.internal.domain.User;
+import br.com.desafio.internal.domain.Usuario;
 import br.com.desafio.internal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,9 +19,10 @@ public class LocalConfig {
 
     @Bean
     public void startDB() {
-        User u1 = new User(null, "Luiz Adolfo", "Luiz", "123");
-        User u2 = new User(null, "Felipe Augusto", "Felipe", "123");
+        Usuario u1 = new Usuario(null, "Luiz Adolfo", "luiz.a.tucunduva@avanade.com", "123");
+        Usuario u2 = new Usuario(null, "Felipe Auugusto", "felipe@avanade.com", "123");
+        Usuario u3 = new Usuario(null, "Vinicius", "vinicius@avanade.com", "123");
 
-        repository.saveAll(List.of(u1, u2));
+        repository.saveAll(List.of(u1, u2, u3));
     }
 }
