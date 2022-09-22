@@ -22,3 +22,5 @@ public class UserDTO {
     private String password;
     private LocalDate dataCadastro;
 }
+
+//criação do dto padrão usado para consulta de dados com segurança
