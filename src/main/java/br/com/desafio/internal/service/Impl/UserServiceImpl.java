@@ -1,7 +1,7 @@
 package br.com.desafio.internal.service.Impl;
 
 
-import br.com.desafio.internal.domain.User;
+import br.com.desafio.internal.domain.Usuario;
 import br.com.desafio.internal.domain.dto.UserDTO;
 import br.com.desafio.internal.repository.UserRepository;
 import br.com.desafio.internal.service.UserService;
@@ -24,25 +24,25 @@ public class UserServiceImpl implements UserService {
     private ModelMapper mapper;
 
     @Override
-    public User findById(Integer id) {
-        Optional<User> obj = repository.findById(id);
+    public Usuario findById(Integer id) {
+        Optional<Usuario> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
-    public List<User> findAll() {
+    public List<Usuario> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public User create(UserDTO obj) {
+    public Usuario create(UserDTO obj) {
         findByEmail(obj);
-        return repository.save(mapper.map(obj, User.class));
+        return repository.save(mapper.map(obj, Usuario.class));
     }
 
     @Override
-    public User update(UserDTO obj) {
+    public Usuario update(UserDTO obj) {
         findByEmail(obj);
-        return repository.save(mapper.map(obj, User.class));
+        return repository.save(mapper.map(obj, Usuario.class));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private void findByEmail(UserDTO obj) {
-        Optional<User> user = repository.findByEmail(obj.getEmail());
+        Optional<Usuario> user = repository.findByEmail(obj.getEmail());
         if(user.isPresent() && !user.get().getId().equals(obj.getId())) {
             throw new DataIntegratyViolationException("E-mail já cadastrado no sistema");
         }
