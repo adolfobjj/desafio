@@ -1,7 +1,7 @@
 package br.com.desafio.internal.service;
 
-import br.com.desafio.internal.domain.Usuario;
-import br.com.desafio.internal.repository.UsuarioRepository;
+import br.com.desafio.internal.domain.User;
+import br.com.desafio.internal.repository.UserRepository;
 import br.com.desafio.internal.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,31 +10,31 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UsuarioService {
+public interface UserService {
 
     @Autowired
-    private UsuarioRepository repository;
+    private UserRepository repository;
 
-    public Usuario findById(Integer id){
-        Optional<Usuario> obj = repository.findById(id);
+    public User findById(Integer id){
+        Optional<User> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Usuario não encontrado com o Id : " + id + ", " + "Tipo: " + Usuario.class.getName()));
+                "Usuario não encontrado com o Id : " + id + ", " + "Tipo: " + User.class.getName()));
 
     }
 
-    public List<Usuario> findAll() {
+    public List<User> findAll() {
         return repository.findAll();
     }
 
-    public Usuario update(Integer id, Usuario obj) {
-        Usuario newObj = findById(id);
+    public User update(Integer id, User obj) {
+        User newObj = findById(id);
         newObj.setNome(obj.getNome());
         newObj.setLogin(obj.getLogin());
         newObj.setSenha(obj.getSenha());
         return repository.save(newObj);
     }
 
-    public Usuario create(Usuario obj) {
+    public User create(User obj) {
         obj.setId(null);
         return repository.save(obj);
 
