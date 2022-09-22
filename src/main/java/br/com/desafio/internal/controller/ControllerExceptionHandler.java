@@ -1,5 +1,6 @@
 package br.com.desafio.internal.controller;
 
+
 import br.com.desafio.internal.service.exception.DataIntegratyViolationException;
 import br.com.desafio.internal.service.exception.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -14,9 +15,8 @@ import java.time.LocalDateTime;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(ObjectNotFoundException.class)
-    public ResponseEntity<StandardError>objectNotFound(ObjectNotFoundException ex, HttpServletRequest request) {
-        StandardError error =
-                new StandardError(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getRequestURI());
+    public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException ex, HttpServletRequest request) {
+        StandardError error = new StandardError(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
