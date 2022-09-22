@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserService {
 
     Usuario findById(Integer id);
-    List<Usuario> findAll();
+    List<Usuario> findAll(); //implementação na interface do findAll
     Usuario create(UserDTO obj);
     Usuario update(UserDTO obj);
     void delete(Integer id);

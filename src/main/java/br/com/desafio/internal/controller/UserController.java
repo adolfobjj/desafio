@@ -29,9 +29,10 @@ public class UserController {
         return ResponseEntity.ok().body(mapper.map(service.findById(id), UserDTO.class));
     }
 
-    @GetMapping
+    @GetMapping  //metado get para busca de todos os usuarios
     public ResponseEntity<List<UserDTO>> findAll() {
-        return ResponseEntity.ok().body(service.findAll()
+        return ResponseEntity.ok().
+                body(service.findAll()
                 .stream().map(x -> mapper.map(x, UserDTO.class)).collect(Collectors.toList()));
     }
 
