@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -20,6 +21,7 @@ public class Usuario {
     @Column(unique = true)
     private String email;
     private String password;
+    private LocalDate dataCadastro;
 
 
 
