@@ -10,8 +10,16 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.when;
+
 @SpringBootTest
 class UserControllerTest {
     public static final Integer ID = 1;
@@ -19,16 +27,16 @@ class UserControllerTest {
     public static final String EMAIL = "luiz.a.tucunduva@avanade.com";
     public static final String PASSWORD = "123";
     public static final LocalDate DATE = LocalDate.now();
+    private Usuario usuario = new Usuario();
+    private UserDTO userDTO = new UserDTO();
 
     @InjectMocks
     private UserController resource;
-
+    @Mock
     private UserServiceImpl service;
 
     @Mock
     private ModelMapper mapper;
-    private Usuario usuario;
-    private UserDTO userDTO;
 
     @BeforeEach
     void setUp() {
@@ -37,7 +45,21 @@ class UserControllerTest {
     }
 
     @Test
-    void findById() {
+    void whenFindByIdThenReturnSuccess() {
+        when(service.findById(anyInt())).thenReturn(usuario);
+        when(mapper.map(any(), any())).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> response = resource.findById(ID);
+
+        assertNotNull(response);
+        assertNotNull(response.getBody());
+        assertEquals(ResponseEntity.class, response.getClass());
+        assertEquals(UserDTO.class, response.getBody().getClass());
+
+        assertEquals(ID, response.getBody().getId());
+        assertEquals(NAME, response.getBody().getName());
+        assertEquals(EMAIL, response.getBody().getEmail());
+        assertEquals(PASSWORD, response.getBody().getPassword());
     }
 
     @Test
