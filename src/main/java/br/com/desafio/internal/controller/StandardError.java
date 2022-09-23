@@ -1,22 +1,17 @@
 package br.com.desafio.internal.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-@Data
 public class StandardError {
 
+    private LocalDateTime timestamp;
     private Integer status;
-    private Long timestamp;
-    private String message;
-
-    public StandardError(LocalDateTime now, int value, String message, String requestURI) {
-    }
+    private String error;
+    private String path;
 }
-
 //Erro padrao com localdate
