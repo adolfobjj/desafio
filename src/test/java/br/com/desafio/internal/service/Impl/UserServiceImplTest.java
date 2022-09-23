@@ -38,8 +38,8 @@ class UserServiceImplTest {
     @Mock
     private ModelMapper mapper;
 
-    private Usuario usuario;
-    private UserDTO userDTO;
+    private Usuario usuario = new Usuario();
+    private UserDTO userDTO = new UserDTO();
     private Optional<Usuario> optionalUser;
 
     @BeforeEach
