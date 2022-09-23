@@ -18,6 +18,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
@@ -37,7 +38,7 @@ class UserServiceImplTest {
     private ModelMapper mapper;
 
     private Usuario usuario;
-    private UserDTO userDto;
+    private UserDTO userDTO;
     private Optional<Usuario> optionalUser;
 
     @BeforeEach
@@ -92,7 +93,17 @@ class UserServiceImplTest {
 
 
     @Test
-    void create() {
+    void whenCreateThenReturnSuccess() {
+        when(repository.save(any())).thenReturn(usuario);
+
+        Usuario response = service.create(userDTO);
+
+        assertNotNull(response);
+        assertEquals(Usuario.class, response.getClass());
+        assertEquals(ID, response.getId());
+        assertEquals(NAME, response.getName());
+        assertEquals(EMAIL, response.getEmail());
+        assertEquals(PASSWORD, response.getPassword());
     }
 
     @Test
@@ -105,7 +116,7 @@ class UserServiceImplTest {
 
     private void startUser(){
         usuario = new Usuario(ID, NAME, EMAIL, PASSWORD, DATE);
-        userDto = new UserDTO(ID, NAME, EMAIL, PASSWORD, DATE);
+        userDTO = new UserDTO(ID, NAME, EMAIL, PASSWORD, DATE);
         optionalUser = Optional.of(new Usuario(ID, NAME, EMAIL, PASSWORD, DATE));
     }
 }
