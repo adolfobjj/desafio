@@ -1,3 +1,6 @@
+"EXERCICIO : CRIAÇÃO DE PROJETO PARA PORTFOLIO!!! NÃO É TRABALHO DE CLIENTE !!!"
+
+
 Desafio Internal Talent
 Pode utilizar a linguagem de sua escolha, porem na versão LTS mais atual
 Pode utlizar qualquer banco de dados (NoSQL ou SQL)
