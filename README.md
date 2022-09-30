@@ -21,5 +21,7 @@ Deve haver os seguintes pre requisitos:
  * Código precisa estar versionado no Github
  * Precisa estar fazendo o build através do Github Actions (Continuos Integration)
  * Utilizar Conventional Commits
+
+
  ![image](https://user-images.githubusercontent.com/47535842/193291765-4bcb0793-4912-4359-8c95-95b691f06c8d.png)
 
